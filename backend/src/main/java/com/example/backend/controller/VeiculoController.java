@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +25,11 @@ public class VeiculoController {
     public ResponseEntity<List<Veiculo>> getAllVeiculos() {
         List<Veiculo> veiculos = veiculoService.getAllVeiculos();
         return new ResponseEntity<>(veiculos, HttpStatus.OK);
+    }
+    
+    @PostMapping
+    public Veiculo addVeiculo(@RequestBody Veiculo veiculo) {
+        return veiculoService.addVeiculo(veiculo);
     }
 
 }
