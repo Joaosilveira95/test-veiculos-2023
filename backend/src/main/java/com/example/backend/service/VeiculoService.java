@@ -1,7 +1,6 @@
 package com.example.backend.service;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +52,7 @@ public class VeiculoService {
 		veiculo.setAno(updatedVeiculo.getAno());
 		veiculo.setDescricao(updatedVeiculo.getDescricao());
 		veiculo.setVendido(updatedVeiculo.isVendido());
-		veiculo.setDataAtualizacao(new Date());
+		veiculo.setDataAtualizacao(updatedVeiculo.getDataAtualizacao());
 		veiculo.setChassi(updatedVeiculo.getChassi());
 		veiculo.setPreco(updatedVeiculo.getPreco());
 		return veiculoRepository.save(veiculo);
