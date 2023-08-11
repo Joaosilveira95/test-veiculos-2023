@@ -1,14 +1,15 @@
 package com.example.backend.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "veiculo")
@@ -28,15 +29,23 @@ public class Veiculo {
 
 	private boolean vendido;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataCriacao;
+	@CreationTimestamp
+	private LocalDateTime dataCriacao;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataAtualizacao;
+	@UpdateTimestamp
+	private LocalDateTime dataAtualizacao;
 
 	private String chassi;
 
 	private Double preco;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getVeiculo() {
 		return veiculo;
@@ -94,19 +103,19 @@ public class Veiculo {
 		this.preco = preco;
 	}
 
-	public Date getDataCriacao() {
+	public LocalDateTime getDataCriacao() {
 		return dataCriacao;
 	}
 
-	public void setDataCriacao(Date dataCriacao) {
+	public void setDataCriacao(LocalDateTime dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
 
-	public Date getDataAtualizacao() {
+	public LocalDateTime getDataAtualizacao() {
 		return dataAtualizacao;
 	}
 
-	public void setDataAtualizacao(Date dataAtualizacao) {
+	public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
